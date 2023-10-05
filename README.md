@@ -1,11 +1,11 @@
 # Miku Miku Library
 
-Format library and file editor for Hatsune Miku: Project DIVA games.
+专门为《初音未来：歌姬计划》系列游戏而编写的格式库与文件编辑器。
 
 # Building
 
-* [Stable (release) builds](https://github.com/blueskythlikesclouds/MikuMikuLibrary/releases)
-* [Unstable (development) builds](https://ci.appveyor.com/project/blueskythlikesclouds/mikumikulibrary/build/artifacts)
+* [稳定版本](https://github.com/blueskythlikesclouds/MikuMikuLibrary/releases)
+* [开发版本](https://ci.appveyor.com/project/blueskythlikesclouds/mikumikulibrary/build/artifacts)
 
 ## Manually building
 
@@ -20,21 +20,23 @@ Format library and file editor for Hatsune Miku: Project DIVA games.
 
 ## Miku Miku Library
 
-This is the main library of the solution, providing methods and classes to read, edit and write file formats from Hatsune Miku: Project DIVA games.
+解决方案的主要数据库，提供了读取、编辑与写入《初音未来：歌姬计划》系列游戏的文件格式的方法和类。
 
 ## Miku Miku Model
 
-A GUI front-end of the library that allows you to work with models, textures, motions and sprites.
+格式库的GUI前端，允许你编辑模型，纹理，动作与纹理。
 
 ## Command line tools
 
-These are command line front-ends for certain functionalities of the library.
+格式库的部分功能的数据区前端。
+
 
 ### Database Converter
 
-A program that allows you to convert database files to XML or vice versa.
+一个允许你转换数据库文件至XML或者将其转换回原格式的程序。
 
-Supported files:
+
+支持文件：
 
 * aet_db.bin/.aei
 * bone_data.bin/.bon
@@ -47,7 +49,7 @@ Supported files:
 
 ### FARC Pack
 
-A program that allows you to extract or create FARC files. MM+ CPK files are also supported.
+一个允许你解压或者打包FARC文件的程序。MM+的CPK文件同样也受支持。
 
 # Special thanks
 
