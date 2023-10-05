@@ -4,8 +4,8 @@
 
 # Building
 
-* [稳定版本](https://github.com/blueskythlikesclouds/MikuMikuLibrary/releases)
-* [开发版本](https://ci.appveyor.com/project/blueskythlikesclouds/mikumikulibrary/build/artifacts)
+* [稳定版本](https://github.com/DavidMax-dm/MikuMikuLibrary_CN/releases)
+* [开发版本](https://ci.appveyor.com/project/DavidMax-dm/mikumikulibrary-cn/build/artifacts)
 
 ## Manually building
 
