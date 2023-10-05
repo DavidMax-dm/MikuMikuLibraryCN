@@ -70,7 +70,7 @@
             this.mGroupBox1.Size = new System.Drawing.Size(478, 209);
             this.mGroupBox1.TabIndex = 0;
             this.mGroupBox1.TabStop = false;
-            this.mGroupBox1.Text = "Configurations";
+            this.mGroupBox1.Text = "配置";
             // 
             // mCreateButton
             // 
@@ -81,7 +81,7 @@
             this.mCreateButton.Name = "mCreateButton";
             this.mCreateButton.Size = new System.Drawing.Size(88, 27);
             this.mCreateButton.TabIndex = 1;
-            this.mCreateButton.Text = "Create";
+            this.mCreateButton.Text = "创建";
             this.mCreateButton.UseVisualStyleBackColor = true;
             this.mCreateButton.Click += new System.EventHandler(this.OnCreate);
             // 
@@ -94,7 +94,7 @@
             this.mRenameButton.Name = "mRenameButton";
             this.mRenameButton.Size = new System.Drawing.Size(88, 27);
             this.mRenameButton.TabIndex = 5;
-            this.mRenameButton.Text = "Rename";
+            this.mRenameButton.Text = "重命名";
             this.mRenameButton.UseVisualStyleBackColor = true;
             this.mRenameButton.Click += new System.EventHandler(this.OnRename);
             // 
@@ -107,7 +107,7 @@
             this.mCloneButton.Name = "mCloneButton";
             this.mCloneButton.Size = new System.Drawing.Size(88, 27);
             this.mCloneButton.TabIndex = 2;
-            this.mCloneButton.Text = "Clone";
+            this.mCloneButton.Text = "克隆";
             this.mCloneButton.UseVisualStyleBackColor = true;
             this.mCloneButton.Click += new System.EventHandler(this.OnClone);
             // 
@@ -120,7 +120,7 @@
             this.mReloadButton.Name = "mReloadButton";
             this.mReloadButton.Size = new System.Drawing.Size(88, 27);
             this.mReloadButton.TabIndex = 4;
-            this.mReloadButton.Text = "Reload";
+            this.mReloadButton.Text = "重载";
             this.mReloadButton.UseVisualStyleBackColor = true;
             this.mReloadButton.Click += new System.EventHandler(this.OnReload);
             // 
@@ -133,7 +133,7 @@
             this.mRemoveButton.Name = "mRemoveButton";
             this.mRemoveButton.Size = new System.Drawing.Size(88, 27);
             this.mRemoveButton.TabIndex = 3;
-            this.mRemoveButton.Text = "Remove";
+            this.mRemoveButton.Text = "移除";
             this.mRemoveButton.UseVisualStyleBackColor = true;
             this.mRemoveButton.Click += new System.EventHandler(this.OnRemove);
             // 
@@ -172,7 +172,7 @@
             this.mGroupBox2.Size = new System.Drawing.Size(478, 157);
             this.mGroupBox2.TabIndex = 1;
             this.mGroupBox2.TabStop = false;
-            this.mGroupBox2.Text = "Configuration";
+            this.mGroupBox2.Text = "配置";
             // 
             // mMotionDatabaseLabel
             // 
@@ -182,7 +182,7 @@
             this.mMotionDatabaseLabel.Name = "mMotionDatabaseLabel";
             this.mMotionDatabaseLabel.Size = new System.Drawing.Size(100, 15);
             this.mMotionDatabaseLabel.TabIndex = 12;
-            this.mMotionDatabaseLabel.Text = "Motion Database:";
+            this.mMotionDatabaseLabel.Text = "动作数据库：";
             // 
             // mMotionDatabasePathTextBox
             // 
@@ -201,7 +201,7 @@
             this.mMotionDatabaseBrowseButton.Name = "mMotionDatabaseBrowseButton";
             this.mMotionDatabaseBrowseButton.Size = new System.Drawing.Size(88, 25);
             this.mMotionDatabaseBrowseButton.TabIndex = 10;
-            this.mMotionDatabaseBrowseButton.Text = "Browse";
+            this.mMotionDatabaseBrowseButton.Text = "浏览";
             this.mMotionDatabaseBrowseButton.UseVisualStyleBackColor = true;
             this.mMotionDatabaseBrowseButton.Click += new System.EventHandler(this.OnMotionDatabaseBrowse);
             // 
@@ -213,7 +213,7 @@
             this.mBoneDataLabel.Name = "mBoneDataLabel";
             this.mBoneDataLabel.Size = new System.Drawing.Size(64, 15);
             this.mBoneDataLabel.TabIndex = 9;
-            this.mBoneDataLabel.Text = "Bone Data:";
+            this.mBoneDataLabel.Text = "骨骼数据：";
             // 
             // mTextureDatabaseLabel
             // 
@@ -223,7 +223,7 @@
             this.mTextureDatabaseLabel.Name = "mTextureDatabaseLabel";
             this.mTextureDatabaseLabel.Size = new System.Drawing.Size(99, 15);
             this.mTextureDatabaseLabel.TabIndex = 8;
-            this.mTextureDatabaseLabel.Text = "Texture Database:";
+            this.mTextureDatabaseLabel.Text = "纹理数据库：";
             // 
             // mObjectDatabaseLabel
             // 
@@ -233,7 +233,7 @@
             this.mObjectDatabaseLabel.Name = "mObjectDatabaseLabel";
             this.mObjectDatabaseLabel.Size = new System.Drawing.Size(96, 15);
             this.mObjectDatabaseLabel.TabIndex = 7;
-            this.mObjectDatabaseLabel.Text = "Object Database:";
+            this.mObjectDatabaseLabel.Text = "模型数据库：";
             // 
             // mBoneDataBrowseButton
             // 
@@ -242,7 +242,7 @@
             this.mBoneDataBrowseButton.Name = "mBoneDataBrowseButton";
             this.mBoneDataBrowseButton.Size = new System.Drawing.Size(88, 25);
             this.mBoneDataBrowseButton.TabIndex = 6;
-            this.mBoneDataBrowseButton.Text = "Browse";
+            this.mBoneDataBrowseButton.Text = "浏览";
             this.mBoneDataBrowseButton.UseVisualStyleBackColor = true;
             this.mBoneDataBrowseButton.Click += new System.EventHandler(this.OnBoneDataBrowse);
             // 
@@ -262,7 +262,7 @@
             this.mTextureDatabaseBrowseButton.Name = "mTextureDatabaseBrowseButton";
             this.mTextureDatabaseBrowseButton.Size = new System.Drawing.Size(88, 25);
             this.mTextureDatabaseBrowseButton.TabIndex = 4;
-            this.mTextureDatabaseBrowseButton.Text = "Browse";
+            this.mTextureDatabaseBrowseButton.Text = "浏览";
             this.mTextureDatabaseBrowseButton.UseVisualStyleBackColor = true;
             this.mTextureDatabaseBrowseButton.Click += new System.EventHandler(this.OnTextureDatabaseBrowse);
             // 
@@ -282,7 +282,7 @@
             this.mObjectDatabaseBrowseButton.Name = "mObjectDatabaseBrowseButton";
             this.mObjectDatabaseBrowseButton.Size = new System.Drawing.Size(88, 25);
             this.mObjectDatabaseBrowseButton.TabIndex = 2;
-            this.mObjectDatabaseBrowseButton.Text = "Browse";
+            this.mObjectDatabaseBrowseButton.Text = "浏览";
             this.mObjectDatabaseBrowseButton.UseVisualStyleBackColor = true;
             this.mObjectDatabaseBrowseButton.Click += new System.EventHandler(this.OnObjectDatabaseBrowse);
             // 
@@ -303,7 +303,7 @@
             this.mOkButton.Name = "mOkButton";
             this.mOkButton.Size = new System.Drawing.Size(88, 27);
             this.mOkButton.TabIndex = 2;
-            this.mOkButton.Text = "OK";
+            this.mOkButton.Text = "决定";
             this.mOkButton.UseVisualStyleBackColor = true;
             // 
             // mCancelButton
@@ -314,7 +314,7 @@
             this.mCancelButton.Name = "mCancelButton";
             this.mCancelButton.Size = new System.Drawing.Size(88, 27);
             this.mCancelButton.TabIndex = 3;
-            this.mCancelButton.Text = "Cancel";
+            this.mCancelButton.Text = "取消";
             this.mCancelButton.UseVisualStyleBackColor = true;
             // 
             // mSearchButton
@@ -327,7 +327,7 @@
             this.mSearchButton.Name = "mSearchButton";
             this.mSearchButton.Size = new System.Drawing.Size(88, 25);
             this.mSearchButton.TabIndex = 13;
-            this.mSearchButton.Text = "Search";
+            this.mSearchButton.Text = "查找";
             this.mSearchButton.UseVisualStyleBackColor = true;
             this.mSearchButton.Click += new System.EventHandler(this.OnSearch);
             // 
@@ -349,7 +349,7 @@
             this.MinimizeBox = false;
             this.Name = "ConfigurationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Configurations";
+            this.Text = "配置";
             this.mGroupBox1.ResumeLayout(false);
             this.mGroupBox2.ResumeLayout(false);
             this.mGroupBox2.PerformLayout();
