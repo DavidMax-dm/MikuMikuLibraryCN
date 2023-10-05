@@ -21,7 +21,7 @@ public class Configuration : ICloneable, IEquatable<Configuration>
     public string BoneDataFilePath { get; set; }
     public string MotionDatabaseFilePath { get; set; }
 
-    public DirectoryInfo BaseDirectory => new(ResourceStore.GetPath(Path.Combine("配置", Name)));
+    public DirectoryInfo BaseDirectory => new(ResourceStore.GetPath(Path.Combine("Configurations", Name)));
 
     [XmlIgnore]
     public ObjectDatabase ObjectDatabase
