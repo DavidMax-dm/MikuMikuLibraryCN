@@ -734,3 +734,67 @@ public abstract partial class Node<T> : INode where T : class
         ClearMementos = 1 << 1
     }
 }
+
+// 在 Node 类中添加以下代码
+protected void AddAddHandler<T>(Func<string, T> handler)
+{
+    if (mAddHandlers == null)
+        mAddHandlers = new Dictionary<Type, Func<string, object>>();
+
+    mAddHandlers[typeof(T)] = filePath => handler(filePath);
+}
+
+private Dictionary<Type, Func<string, object>> mAddHandlers;
+
+public void AddModel()
+{
+    if (!Flags.HasFlag(NodeFlags.Add))
+        return;
+
+    var openFileDialog = new OpenFileDialog
+    {
+        AutoUpgradeEnabled = true,
+        CheckPathExists = true,
+        CheckFileExists = true,
+        Filter = ModuleFilterGenerator.GenerateFilter(mAddHandlers.Keys, FormatExtensionFlags.Import),
+        Title = "Select a file to add.",
+        ValidateNames = true,
+        AddExtension = true
+    };
+
+    if (openFileDialog.ShowDialog() != DialogResult.OK)
+        return;
+
+    AddModel(openFileDialog.FileName);
+}
+
+public void AddModel(string filePath)
+{
+    if (!Flags.HasFlag(NodeFlags.Add))
+        return;
+
+    var module = ModuleImportUtilities.GetModule(mAddHandlers.Keys, filePath);
+    if (module == null)
+    {
+        MessageBox.Show("Model could not be added.", Program.Name, MessageBoxButtons.OK,
+            MessageBoxIcon.Error);
+    }
+    else
+    {
+        ConfigurationList.Instance.DetermineCurrentConfiguration(filePath);
+        var configuration = ConfigurationList.Instance.CurrentConfiguration;
+
+        var obj = mAddHandlers[module.ModelType](filePath);
+
+        if (obj == null)
+            return;
+
+        // 假设 Data 是一个包含模型的集合，将新模型添加到集合中
+        if (Data is ICollection<object> modelCollection)
+        {
+            modelCollection.Add(obj);
+        }
+
+        SourceConfiguration = configuration;
+    }
+}
