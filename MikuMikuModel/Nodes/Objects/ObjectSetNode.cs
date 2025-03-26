@@ -1,4 +1,4 @@
-﻿using Assimp;
+using Assimp;
 using MikuMikuLibrary.Databases;
 using MikuMikuLibrary.Extensions;
 using MikuMikuLibrary.Geometry;
@@ -905,20 +905,4 @@ public class ObjectSetNode : BinaryFileNode<ObjectSet>
     public ObjectSetNode(string name, Func<Stream> streamGetter) : base(name, streamGetter)
     {
     }
-}
-
-protected override void Initialize()
-{
-    // 注册添加模型的处理程序
-    AddAddHandler<Scene>(filePath =>
-    {
-        if (Data.Objects.Count > 1)
-            return AssimpImporter.ImportFromFile(filePath);
-
-        return AssimpImporter.ImportFromFileWithSingleObject(filePath);
-    });
-
-    // 其他初始化代码...
-
-    base.Initialize();
 }
