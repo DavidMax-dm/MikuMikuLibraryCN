@@ -1,4 +1,4 @@
-﻿using MikuMikuLibrary.Databases;
+using MikuMikuLibrary.Databases;
 using MikuMikuLibrary.IO;
 using MikuMikuModel.Nodes.Collections;
 using MikuMikuModel.Nodes.IO;
@@ -39,9 +39,8 @@ public class TextureDatabaseNode : BinaryFileNode<TextureDatabase>
 
 public class TextureInfoNode : Node<TextureInfo>
 {
-    public override NodeFlags Flags =>
-        NodeFlags.Add | NodeFlags.Export | NodeFlags.Replace | NodeFlags.Rename;
-        
+    public override NodeFlags Flags => NodeFlags.Rename;
+
     [Category("General")]
     [TypeConverter(typeof(IdTypeConverter))]
     public uint Id
@@ -52,12 +51,6 @@ public class TextureInfoNode : Node<TextureInfo>
 
     protected override void Initialize()
     {
-        AddExportHandler<TextureDatabase>(filePath => Data.Save(filePath));
-        AddReplaceHandler<TextureDatabase>(BinaryFile.Load<TextureDatabase>);
-        // 添加添加模型的处理程序
-        AddAddHandler<TextureDatabase>(BinaryFile.Load<TextureDatabase>);
-
-        base.Initialize();
     }
 
     protected override void PopulateCore()
@@ -72,4 +65,3 @@ public class TextureInfoNode : Node<TextureInfo>
     {
     }
 }
-
