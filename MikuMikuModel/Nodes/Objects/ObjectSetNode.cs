@@ -534,6 +534,15 @@ public class ObjectSetNode : BinaryFileNode<ObjectSet>
             return true;
         }, Keys.None, CustomHandlerFlags.ClearMementos);
 
+        //Add new function area!
+        AddDirtyCustomHandler("Enable UV1 for all meshes", () =>
+        {
+            foreach (var subMesh in Data.Objects.SelectMany(x => x.Meshes).SelectMany(x => x.SubMeshes))
+            subMesh.TexCoordIndices[1] = subMesh.TexCoordIndices[1];
+
+            return true;
+        }, Keys.None, CustomHandlerFlags.ClearMementos);
+
         AddCustomHandlerSeparator();
 
         AddDirtyCustomHandler("Generate tangents", () =>
