@@ -1,9 +1,12 @@
-﻿using MikuMikuLibrary.Geometry;
+using MikuMikuLibrary.Geometry;
 using MikuMikuLibrary.Numerics;
 using MikuMikuLibrary.Objects;
 using MikuMikuModel.GUI.Controls;
 using MikuMikuModel.Nodes.Collections;
 using Ookii.Dialogs.WinForms;
+using System.IO;
+
+using System.Text.Json;
 
 namespace MikuMikuModel.Nodes.Objects;
 
@@ -162,6 +165,87 @@ public class MeshNode : Node<Mesh>
 
                     Colors0 = colors;
                     break;
+                }
+            }
+        });
+
+        AddCustomHandler("Export Color Data", () =>
+        {
+            if (Colors0 == null || Colors0.Length == 0)
+            {
+                MessageBox.Show("No color data to export.", Program.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var saveDialog = new SaveFileDialog
+            {
+                Title = "Export Color Data",
+                Filter = "Text File (*.txt)|*.txt",
+                FileName = "Colors0.txt"
+            })
+            {
+                if (saveDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    var lines = Colors0.Select(c => $"{c.X}, {c.Y}, {c.Z}, {c.W}");
+                    File.WriteAllLines(saveDialog.FileName, lines);
+                    //MessageBox.Show("Export successful!", Program.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to export file:\n{ex.Message}", Program.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        });
+
+        AddCustomHandler("Import Color Data", () =>
+        {
+            using (var openDialog = new OpenFileDialog
+            {
+                Title = "Import Color Data",
+                Filter = "Text File (*.txt)|*.txt"
+            })
+            {
+                if (openDialog.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    var lines = File.ReadAllLines(openDialog.FileName);
+                    var importedColors = new List<Vector4>();
+
+                    foreach (var line in lines)
+                    {
+                        var split = line.Split(',').Select(s => s.Trim()).ToArray();
+
+                        if (split.Length != 4 ||
+                            !float.TryParse(split[0], out float r) ||
+                            !float.TryParse(split[1], out float g) ||
+                            !float.TryParse(split[2], out float b) ||
+                            !float.TryParse(split[3], out float a))
+                        {
+                            MessageBox.Show("Invalid data format in file.", Program.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        importedColors.Add(new Vector4(r, g, b, a));
+                    }
+
+                    if (importedColors.Count != Data.Positions.Length)
+                    {
+                        MessageBox.Show($"Imported color count ({importedColors.Count}) doesn't match vertex count ({Data.Positions.Length}).",
+                                        Program.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    Colors0 = importedColors.ToArray();
+                    //MessageBox.Show("Import successful!", Program.Name, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to import file:\n{ex.Message}", Program.Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         });
