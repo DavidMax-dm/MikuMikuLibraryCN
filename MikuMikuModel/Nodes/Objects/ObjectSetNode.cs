@@ -538,11 +538,14 @@ public class ObjectSetNode : BinaryFileNode<ObjectSet>
         AddDirtyCustomHandler("Enable UV1 for all meshes", () =>
         {
             foreach (var subMesh in Data.Objects.SelectMany(x => x.Meshes).SelectMany(x => x.SubMeshes))
-            subMesh.TexCoordIndices[1] = subMesh.TexCoordIndices[1];
+                //将所有mesh的Material texture coordinate indices的[1]都设置为1
+                subMesh.TexCoordIndices[1] |= 1;
 
             return true;
         }, Keys.None, CustomHandlerFlags.ClearMementos);
 
+
+        //This is the line to ended this type of function
         AddCustomHandlerSeparator();
 
         AddDirtyCustomHandler("Generate tangents", () =>
